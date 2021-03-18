@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.zarek</groupId>
+    <artifactId>itrip</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <parent>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <groupId>org.springframework.boot</groupId>
+        <version>2.3.9.RELEASE</version>
+    </parent>
+
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <mybatis-spring-boot-starter>2.1.4</mybatis-spring-boot-starter>
+    </properties>
+
+
+    <dependencies>
+
+
+<!--   配置spring boot starter web依赖【begin】     -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+<!--    配置spring boot starter web依赖【end】    -->
+
+<!--        配置mysql connector java 依赖【begin】-->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+<!--        配置mysql connector java 依赖【end】-->
+
+<!--        配置mybatis spring boot java 依赖-->
+        <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+            <version>${mybatis-spring-boot-starter}</version>
+        </dependency>
+<!--        配置mybatis spring boot java 依赖-->
+<!--        配置Druid Spring Boot Starter 依赖-->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid-spring-boot-starter</artifactId>
+            <version>1.2.5</version>
+        </dependency>
+
+        <!--        配置Druid Spring Boot Starter 依赖-->
+<!--        -->
+        <dependency>
+            <groupId>org.apache.solr</groupId>
+            <artifactId>solr-solrj</artifactId>
+            <version>7.1.0</version>
+        </dependency>
+    </dependencies>
+
+</project>
