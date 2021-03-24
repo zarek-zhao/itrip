@@ -1,7 +1,7 @@
 package com.zarek.itrip.service;
 
 import com.zarek.itrip.pojo.entity.ItripUser;
-import org.springframework.stereotype.Service;
+import com.zarek.itrip.pojo.vo.userinfo.ItripUserVO;
 
 /**
  * <b>爱旅行-用户功能业务层接口</b>
@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
  * @version 1.0.0
  * @since 1.0.0
  */
-@Service
 public interface UserService {
     /**
      * <b>根据用户名查找用户信息</b>
@@ -18,4 +17,12 @@ public interface UserService {
      * @throws Exception
      */
     ItripUser getUserByUserCode(String name) throws Exception;
+
+    /**
+     * <b>进行用户信息注册</b>
+     * @param userVO
+     * @return
+     * @throws Exception
+     */
+    boolean registerUser(ItripUserVO userVO) throws Exception;
 }

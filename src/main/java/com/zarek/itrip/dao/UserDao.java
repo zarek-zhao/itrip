@@ -19,4 +19,12 @@ public interface UserDao {
      * @throws Exception
      */
     ItripUser findUserByUserCode(String userCode) throws Exception;
+
+    /**
+     * <b>保存用户的信息</b>
+     * @param user
+     * @return
+     * @throws Exception
+     */
+    int saveUser(ItripUser user) throws Exception;
 }

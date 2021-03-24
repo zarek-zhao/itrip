@@ -2,7 +2,7 @@ package com.zarek.itrip.pojo.enums;
 
 /**
  * <b>用户激活状态枚举信息</b>
- * @author Arthur
+ * @author zarek
  * @version 1.0.0
  * @since 1.0.0
  */

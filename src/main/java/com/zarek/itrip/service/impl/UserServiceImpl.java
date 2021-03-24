@@ -2,10 +2,15 @@ package com.zarek.itrip.service.impl;
 
 import com.zarek.itrip.dao.UserDao;
 import com.zarek.itrip.pojo.entity.ItripUser;
+import com.zarek.itrip.pojo.enums.ActivatedEnum;
+import com.zarek.itrip.pojo.enums.UserTypeEnum;
+import com.zarek.itrip.pojo.vo.userinfo.ItripUserVO;
 import com.zarek.itrip.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.Date;
 
 /**
  * <b>爱旅行-用户功能业务层实现类</b>
@@ -16,7 +21,6 @@ import org.springframework.transaction.annotation.Transactional;
 @Service("userService")
 @Transactional
 public class UserServiceImpl implements UserService {
-
     @Autowired
     private UserDao userDao;
 
@@ -31,5 +35,37 @@ public class UserServiceImpl implements UserService {
     {
         ItripUser user = userDao.findUserByUserCode(userCode);
         return user;
+    }
+
+
+    /**
+     * <b>进行用户信息注册</b>
+     * @param userVO
+     * @return
+     * @throws Exception
+     */
+    @Override
+    public boolean registerUser(ItripUserVO userVO) throws Exception
+    {
+
+        //创建 ItripUser 对象，并且根据 ItripUserVO 的值填充 ItripUser 的属性
+        ItripUser user = new ItripUser();
+        user.setUserCode(userVO.getUserCode());
+        user.setUserPassword(userVO.getUserPassword());
+        user.setUserType(UserTypeEnum.USER_TYPE_SELF.getCode());
+        user.setUserName(userVO.getUserName());
+        user.setCreationDate(new Date());
+        user.setModifyDate(new Date());
+        // 设定用户为未激活状态
+        user.setActivated(ActivatedEnum.ACTIVATED_DISABLE.getCode());
+        // 保存用户信息
+        int count = userDao.saveUser(user);
+        if(count > 0){
+            // 用户注册成功
+            return true;
+        }else{
+            // 用户注册失败
+            return false;
+        }
     }
 }
