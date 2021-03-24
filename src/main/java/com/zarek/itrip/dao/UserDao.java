@@ -5,6 +5,7 @@ import org.springframework.stereotype.Repository;
 
 /**
  * <b>爱旅行-用户功能数据持久层接口</b>
+ *
  * @author zarek
  * @version 1.0.0
  * @since 1.0.0
@@ -14,6 +15,7 @@ public interface UserDao {
 
     /**
      * <b>使用 userCode 查询用户信息</b>
+     *
      * @param userCode
      * @return
      * @throws Exception
@@ -22,9 +24,19 @@ public interface UserDao {
 
     /**
      * <b>保存用户的信息</b>
+     *
      * @param user
      * @return
      * @throws Exception
      */
     int saveUser(ItripUser user) throws Exception;
+
+    /**
+     * <b>修改用户信息</b>
+     *
+     * @param user
+     * @return
+     * @throws Exception
+     */
+    int updateUser(ItripUser user) throws Exception;
 }

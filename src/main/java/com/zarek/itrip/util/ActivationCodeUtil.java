@@ -4,7 +4,7 @@ import java.util.Random;
 
 /**
  * <b>激活码工具类</b>
- * @author Arthur
+ * @author zarek
  * @version 1.0.0
  * @since 1.0.0
  */
@@ -22,7 +22,6 @@ public class ActivationCodeUtil {
 			// 产生一个随机数
 			sb.append(random.nextInt(10));
 		}
-
 		return sb.toString();
 	}
 }

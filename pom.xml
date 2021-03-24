@@ -54,7 +54,19 @@
         </dependency>
 
         <!--        配置Druid Spring Boot Starter 依赖-->
-<!--        -->
+<!--       配置 Spring Boot Starter Mail 依赖关系[Begin] -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-mail</artifactId>
+        </dependency>
+<!--       配置 Spring Boot Starter Mail 依赖关系[End] -->
+<!-- 配置 容联云 Java 短信接口功能 SDK 依赖关系[Begin]一-->
+        <dependency>
+            <groupId>com.cloopen</groupId>
+            <artifactId>java-sms-sdk</artifactId>
+            <version>1.0.3</version>
+        </dependency>
+<!-- 配置 容联云 Java 短信接口功能 SDK 依赖关系[End]一-->
         <dependency>
             <groupId>org.apache.solr</groupId>
             <artifactId>solr-solrj</artifactId>

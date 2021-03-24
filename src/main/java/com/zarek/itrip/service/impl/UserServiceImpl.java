@@ -68,4 +68,25 @@ public class UserServiceImpl implements UserService {
             return false;
         }
     }
+
+    /**
+     * <b>激活用户信息</b>
+     * @param userCode
+     * @return
+     * @throws Exception
+     */
+    @Override
+    public boolean activateUser(String userCode) throws Exception
+    {
+
+        // 根据 userCode 查找用户激活信息
+        ItripUser user = userDao.findUserByUserCode(userCode);
+        // 将状态修改为已激活状态
+        user.setActivated(ActivatedEnum.ACTIVATED_ENABLE.getCode());
+        int count = userDao.updateUser(user);
+        if(count > 0){
+            return true;
+        }
+        return false;
+    }
 }

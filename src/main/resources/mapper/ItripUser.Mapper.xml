@@ -29,6 +29,7 @@
 
         select iu.id,
                iu.userCode,
+               iu.userPassword,
                iu.userType,
                iu.flatID,
                iu.userName,
@@ -45,6 +46,22 @@
         where iu.userCode = #{userCode}
 
     </select>
+
+    <update id="updateUser" parameterType="ItripUser">
+
+        update itrip_user
+        <set>
+            <trim suffixOverrides=",">
+                <if test="activated != null">activated=#{activated} ,</if>
+            </trim>
+        </set>
+            <where>
+                <trim suffixOverrides="and">
+                    <if test="id != null">id=#{id} and </if>
+                </trim>
+            </where>
+
+    </update>
 
     <resultMap id="itripUserMap" type="ItripUser">
         <id property="id" javaType="java.lang.Long" column="id"/>

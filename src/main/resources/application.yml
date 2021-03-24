@@ -29,6 +29,13 @@ spring:
       min-evictable-idle-time-millis: 30000
       ### 最大存活时间
       max-evictable-idle-time-millis: 60000
+  mail:
+    ### 邮箱服务器地址
+    host: smtp.163.com
+    ### 所使用邮箱地址
+    username: ekgcitrip@163.com
+    ### 设置登录邮箱服务器密码
+    password: EHULPNWSQGGBRYLK
 ### mybatis 配置信息
 mybatis:
   mapper-locations: classpath:/mapper/*.Mapper.xml

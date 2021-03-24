@@ -25,4 +25,13 @@ public interface UserService {
      * @throws Exception
      */
     boolean registerUser(ItripUserVO userVO) throws Exception;
+
+    /**
+     * <b>激活用户信息</b>
+     * @param userCode
+     * @return
+     * @throws Exception
+     */
+    boolean activateUser(String userCode) throws Exception;
+
 }
