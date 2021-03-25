@@ -1,8 +1,11 @@
 package com.zarek.itrip.controller;
 
 import com.zarek.itrip.pojo.dto.Dto;
+import com.zarek.itrip.pojo.entity.ItripLabelDic;
 import com.zarek.itrip.pojo.vo.ItripAreaDicVO;
+import com.zarek.itrip.pojo.vo.ItripLabelDicVO;
 import com.zarek.itrip.service.AreaDicService;
+import com.zarek.itrip.service.LabelDicService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,7 +25,8 @@ import java.util.List;
 public class HotelController {
     @Autowired
     private AreaDicService areaDicService;
-
+    @Autowired
+    private LabelDicService labelDicService;
     /**
      * <b>查询国内、国外的热门城市(1.国内 2.国外)</b>
      * @param type
@@ -48,7 +52,18 @@ public class HotelController {
      */
     @GetMapping("/queryhotelfeature")
     public Dto<Object> queryHotelFeature() throws Exception{
-        return null;
+        // 创建查询对象
+        ItripLabelDic query = new ItripLabelDic();
+        // 酒店特色储存的上级主键为 16
+        query.setParentId(16L);
+        // 进行查询
+        List<ItripLabelDicVO> labelDicVOList = labelDicService.getListByQuery(query);
+
+        Dto<Object> dto = new Dto<Object>();
+        dto.setSuccess("ture");
+        dto.setData(labelDicVOList);
+
+        return dto;
     }
 
 }
